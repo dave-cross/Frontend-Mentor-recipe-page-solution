@@ -96,6 +96,7 @@ ol {
   list-style: none;
 
   li {
+    --flow-space: var(--space-100);
     margin-inline-start: var(--_list-indent);
     text-indent: calc(var(--_list-indent) * -1);
   }
@@ -159,6 +160,58 @@ tr {
   }
 }
 
+.flow > * + * {
+  margin-block-start: var(--flow-space, var(--space-500));
+}
+
+.challenge-wrapper {
+  --_max-width: var(--max-width, 320px);
+
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: var(--space-1600)
+    max(var(--space-950), calc(50% - var(--_max-width) / 2));
+}
+
 .recipe {
+  /* --prep-time-color: purple; */
   background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-500);
+}
+
+.recipe__image {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.recipe__content {
+  > * {
+    --flow-space: var(--space-400);
+  }
+
+  > :is(section > *, p) {
+    --flow-space: var(--space-300);
+  }
+}
+
+.prep-time {
+  --_prep-time-color: var(--prep-time-color, var(--rose-800));
+  --_prep-time-bgc: hsl(from var(--_prep-time-color) h 100% 98%);
+  --marker-color: var(--_prep-time-color);
+  background-color: var(--_prep-time-bgc);
+  border-radius: var(--radius-sm);
+  padding: var(--space-300);
+
+  > * {
+    --flow-space: var(--space-200);
+  }
+
+  h2 {
+    color: var(--_prep-time-color);
+    font-family: var(--font-sans-serif);
+    font-size: var(--text-size-3);
+    font-weight: 600;
+  }
 }
