@@ -65,7 +65,7 @@ h1 {
   color: var(--stone-900);
   font-size: var(--text-size-1-sm);
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     font-size: var(--text-size-1);
   }
 }
@@ -166,27 +166,43 @@ tr {
 
 .challenge-wrapper {
   --_max-width: var(--max-width, 320px);
+  --_wrapper-padding: 0;
 
   display: grid;
   place-items: center;
   min-height: 100vh;
-  padding: var(--space-1600)
-    max(var(--space-950), calc(50% - var(--_max-width) / 2));
+  padding: var(--_wrapper-padding);
+
+  @media (min-width: 550px) {
+    --_wrapper-padding: var(--space-1600)
+      max(var(--space-950), calc(50% - var(--_max-width) / 2));
+  }
 }
 
 .recipe {
   /* --prep-time-color: purple; */
   background-color: var(--white);
-  border-radius: var(--radius-lg);
-  padding: var(--space-500);
+
+  @media (min-width: 550px) {
+    border-radius: var(--radius-lg);
+    padding: var(--space-500);
+  }
 }
 
 .recipe__image {
-  border-radius: var(--radius-sm);
   overflow: hidden;
+
+  @media (min-width: 550px) {
+    border-radius: var(--radius-sm);
+  }
 }
 
 .recipe__content {
+  padding: var(--space-400);
+  padding-block-start: 0;
+  @media (min-width: 550px) {
+    padding: 0;
+  }
   > * {
     --flow-space: var(--space-400);
   }
