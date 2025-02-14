@@ -200,14 +200,17 @@ tr {
 .recipe__content {
   padding: var(--space-400);
   padding-block-start: 0;
+
   @media (min-width: 550px) {
     padding: 0;
   }
+
   > * {
     --flow-space: var(--space-400);
   }
 
-  > :is(section > *, p) {
+  > section > *,
+  > p {
     --flow-space: var(--space-300);
   }
 }
